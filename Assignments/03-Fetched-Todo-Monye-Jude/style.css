@@ -1,0 +1,129 @@
+/* ===== Reset Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background-color: #eee;
+}
+
+.main {
+  padding: 20px 30px;
+}
+h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.card {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.6);
+  transition: 0.2s;
+}
+.card:hover {
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.9);
+}
+.card h3 {
+  margin-block: 5px;
+}
+.task {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  border: 1px solid black;
+  padding: 5px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+.title {
+  flex-grow: 1;
+}
+.status {
+  border-radius: 15px;
+  font-size: 0.8rem;
+  padding: 4px 6px;
+  display: block;
+  margin-left: auto;
+}
+.status.pending {
+  color: white;
+  background: gray;
+}
+.status.completed {
+  color: white;
+  background: #060;
+}
+
+/* ===== Loader ===== */
+.loader-container {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-content: center;
+  background-color: #333;
+}
+.loader-container.show {
+  display: grid;
+}
+.loader-container .loader {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(
+      #0000,
+      calc(1 * 100% / 6),
+      #fff,
+      calc(3 * 100% / 6),
+      #0000 0
+    ),
+    linear-gradient(
+      #0000,
+      calc(2 * 100% / 6),
+      #fff,
+      calc(4 * 100% / 6),
+      #0000 0
+    ),
+    linear-gradient(
+      #0000,
+      calc(3 * 100% / 6),
+      #fff,
+      calc(5 * 100% / 6),
+      #0000 0
+    );
+  background-size: 10px 400%;
+  background-repeat: no-repeat;
+  animation: matrix 1s infinite linear;
+}
+
+@keyframes matrix {
+  0% {
+    background-position: 0% 100%, 50% 100%, 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%, 50% 0%, 100% 0%;
+  }
+}
+
+/* ===== media query ===== */
+@media (max-width: 500px) {
+  .main {
+    padding-inline: 10px;
+  }
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 410px) {
+  .task {
+    flex-wrap: wrap;
+  }
+}
