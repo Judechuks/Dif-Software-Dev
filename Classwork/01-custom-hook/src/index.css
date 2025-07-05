@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+}
+.container {
+  outline: 1px solid black;
+  height: 200px;
+  background-color: lightgray;
+  border-radius: 10px;
+  width: 500px;
+  margin-inline: auto;
+  padding: 20px 0;
+}
+input {
+  display: block;
+  padding: 5px;
+  margin: auto;
+}
+output {
+  display: block;
+  margin-top: 5px;
+  padding: 10px;
+}
